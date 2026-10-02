@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Favourite Person 🎀</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    background: #fff5f8;
+    color: #5b3b46;
+    overflow-x: hidden;
+}
+
+/* Floating decorations */
+
+.decor {
+    position: fixed;
+    font-size: 25px;
+    pointer-events: none;
+    z-index: 5;
+    animation: float 4s ease-in-out infinite;
+}
+
+.d1 { top: 12%; left: 6%; }
+.d2 { top: 25%; right: 7%; animation-delay: 1s; }
+.d3 { top: 55%; left: 5%; animation-delay: 2s; }
+.d4 { top: 70%; right: 6%; animation-delay: .5s; }
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(5deg);
+    }
+}
+
+/* Main opening */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+    background:
+        radial-gradient(circle at 20% 20%, #ffdce8 0 3%, transparent 4%),
+        radial-gradient(circle at 80% 30%, #ffe7ef 0 4%, transparent 5%),
+        #fff5f8;
+}
+
+.hero-card {
+    max-width: 600px;
+    width: 100%;
+    padding: 45px 25px;
+    background: rgba(255,255,255,.8);
+    border: 2px solid #ffd0df;
+    border-radius: 35px;
+    box-shadow: 0 15px 40px rgba(180,100,130,.15);
+}
+
+.small {
+    font-size: 17px;
+    letter-spacing: 2px;
+    color: #c47791;
+}
+
+h1 {
+    font-size: 45px;
+    color: #d85d83;
+    margin: 18px 0;
+}
+
+.hero-text {
+    font-size: 19px;
+    line-height: 1.7;
+}
+
+button {
+    border: none;
+    background: #e982a3;
+    color: white;
+    padding: 15px 28px;
+    border-radius: 30px;
+    font-size: 17px;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: 0 7px 15px rgba(216,93,131,.25);
+    transition: .25s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Sections */
+
+section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.section-title {
+    color: #d85d83;
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    color: #99717d;
+    margin-bottom: 35px;
+}
+
+/* Letter */
+
+.letter {
+    max-width: 700px;
+    margin: auto;
+    background: #fffdf8;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(120,80,90,.12);
+    border: 1px solid #f2d8df;
+    text-align: left;
+    position: relative;
+}
+
+.letter:before {
+    content: "💌";
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 38px;
+}
+
+.letter p {
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+.signature {
+    text-align: right;
+    color: #d85d83;
+    font-size: 20px;
+}
+
+/* Reasons */
+
+.reasons {
+    max-width: 700px;
+    margin: auto;
+    display: grid;
+    gap: 15px;
+}
+
+.reason {
+    background: white;
+    border: 1px solid #ffd7e3;
+    padding: 20px;
+    border-radius: 22px;
+    font-size: 18px;
+    box-shadow: 0 7px 18px rgba(180,100,130,.08);
+}
+
+/* Photos */
+
+.photos {
+    max-width: 800px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.photo-card {
+    background: white;
+    padding: 10px 10px 18px;
+    box-shadow: 0 10px 25px rgba(100,70,80,.15);
+    transform: rotate(-2deg);
+}
+
+.photo-card:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.photo-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background: #ffe5ed;
+}
+
+.photo-card p {
+    margin: 12px 0 0;
+    color: #9b6475;
+}
+
+/* Surprise */
+
+.surprise {
+    max-width: 600px;
+    margin: auto;
+}
+
+.secret {
+    display: none;
+    margin-top: 30px;
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    border: 2px dashed #f1a8bd;
+    animation: appear .8s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+footer {
+    padding: 35px 20px;
+    text-align: center;
+    background: #ffe3ec;
+    color: #9b6174;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 35px;
+    }
+
+    .hero-card {
+        padding: 40px 20px;
+    }
+
+    .section-title {
+        font-size: 29px;
+    }
+
+    .photos {
+        grid-template-columns: 1fr;
+        max-width: 330px;
+    }
+
+    .letter {
+        padding: 35px 22px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- 🎀 CUTE STICKERS -->
+
+<div class="decor d1">🎀</div>
+<div class="decor d2">✨</div>
+<div class="decor d3">🧸</div>
+<div class="decor d4">🌷</div>
+
+
+<!-- 💗 OPENING -->
+
+<div class="hero">
+
+    <div class="hero-card">
+
+        <div class="small">A TINY LITTLE WEBSITE</div>
+
+        <h1>For My Favourite Person 🎀</h1>
+
+        <p class="hero-text">
+            Happy Boyfriend's Dayyy 🩷
+            <br>
+            I made this tiny corner of the internet
+            especially for you hehe 😋
+        </p>
+
+        <br>
+
+        <button onclick="document.getElementById('letter').scrollIntoView()">
+            Open it 💌
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- 💌 LETTER -->
+
+<section id="letter">
+
+    <h2 class="section-title">A little letter for you 💌</h2>
+
+    <p class="section-subtitle">
+        okayyy now you actually have to read this 😭🎀
+    </p>
+
+
+    <div class="letter">
+
+        <!-- 💗 START EDITING YOUR LETTER HERE -->
+
+        <p>
+            Hiiiii idiottt 😭🎀
+        </p>
+
+        <p>
+            Happy Boyfriend's Dayyy 🩷
+            Wese mujhe honestly pta bhi nhi tha ki
+            Boyfriend's Day pe kya likhna hota hai,
+            buttt I wanted to make something special for you.
+        </p>
+
+        <p>
+            Thank you for being such an important part
+            of my life and for all the little moments
+            that make me smile.
+        </p>
+
+        <p>
+            I hope you know how special you are to me.
+            And yes, you're still a little annoying sometimes
+            but unfortunately I still like you 😭🤚
+        </p>
+
+        <p>
+            I love our stupid conversations,
+            our random jokes,
+            and all the tiny memories we've made.
+        </p>
+
+        <p>
+            Happy Boyfriend's Dayyy once again,
+            my favourite idiot 🎀🩷
+        </p>
+
+        <p class="signature">
+            — from your favourite person 🫶
+        </p>
+
+        <!-- 💗 STOP EDITING YOUR LETTER HERE -->
+
+    </div>
+
+</section>
+
+
+<!-- 🫶 REASONS -->
+
+<section>
+
+    <h2 class="section-title">
+        Reasons you're my favourite 🫶
+    </h2>
+
+    <p class="section-subtitle">
+        not that you need a whole list but okayyy 😭
+    </p>
+
+    <div class="reasons">
+
+        <div class="reason">
+            🎀 You make me smile
+        </div>
+
+        <div class="reason">
+            🧸 You make even normal days feel special
+        </div>
+
+        <div class="reason">
+            ✨ Your random nonsense 😭
+        </div>
+
+        <div class="reason">
+            🩷 The way you care
+        </div>
+
+        <div class="reason">
+            😋 And simply because you're YOU
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- 📸 MEMORIES -->
+
+<section>
+
+    <h2 class="section-title">
+        Our little memories 📸
+    </h2>
+
+    <p class="section-subtitle">
+        some moments I want to keep forever 🎀
+    </p>
+
+
+    <div class="photos">
+
+        <!--
+        LATER:
+        Replace these placeholder images with your own photos.
+        I'll show you exactly how.
+        -->
+
+        <div class="photo-card">
+
+            <img
+            src="https://placehold.co/600x600/ffe5ed/d85d83?text=Your+Photo+1"
+            alt="Memory">
+
+            <p>one of my favourite memories 🩷</p>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <img
+            src="https://placehold.co/600x600/ffe5ed/d85d83?text=Your+Photo+2"
+            alt="Memory">
+
+            <p>us being us 😭🎀</p>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <img
+            src="https://placehold.co/600x600/ffe5ed/d85d83?text=Your+Photo+3"
+            alt="Memory">
+
+            <p>another little memory 🫶</p>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <img
+            src="https://placehold.co/600x600/ffe5ed/d85d83?text=Your+Photo+4"
+            alt="Memory">
+
+            <p>and another oneee 🎀</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- 🎁 SURPRISE -->
+
+<section>
+
+    <div class="surprise">
+
+        <h2 class="section-title">
+            Waittt... one more thing 👀
+        </h2>
+
+        <p class="section-subtitle">
+            You didn't think that was everything, did you? 😋
+        </p>
+
+        <button onclick="showSecret()">
+            Click for a surprise 💌
+        </button>
+
+
+        <div class="secret" id="secret">
+
+            <h2>🎀 Surpriseee 🎀</h2>
+
+            <p>
+                You're officially stuck with this
+                annoying person now 😭🩷
+            </p>
+
+            <p>
+                Happy Boyfriend's Dayyy 🫶
+            </p>
+
+            <p>
+                I hope this little website made you smile.
+                💗✨🎀
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    Made with way too much love 🎀🩷✨
+
+</footer>
+
+
+<script>
+
+function showSecret() {
+
+    document.getElementById("secret").style.display = "block";
+
+}
+
+</script>
+
+
+</body>
+      </html>
